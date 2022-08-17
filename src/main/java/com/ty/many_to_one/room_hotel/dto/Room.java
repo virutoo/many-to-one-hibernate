@@ -1,15 +1,24 @@
-package com.ty.organization_bus.dto;
+package com.ty.many_to_one.room_hotel.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Bus {
+public class Room {
 
 	@Id
 	private int id;
 	private int capacity;
 	private String type;
+
+	@ManyToOne
+	private Hotel hotel;
+
+	@Override
+	public String toString() {
+		return "Room [id=" + id + ", capacity=" + capacity + ", type=" + type + ", hotel=" + hotel + "]";
+	}
 
 	public int getId() {
 		return id;
@@ -35,9 +44,12 @@ public class Bus {
 		this.type = type;
 	}
 
-	@Override
-	public String toString() {
-		return "Bus [id=" + id + ", capacity=" + capacity + ", type=" + type + "]";
+	public Hotel getHotel() {
+		return hotel;
+	}
+
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
 	}
 
 }

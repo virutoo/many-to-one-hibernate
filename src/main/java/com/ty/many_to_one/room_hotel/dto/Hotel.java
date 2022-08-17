@@ -1,25 +1,24 @@
-package com.ty.organization_bus.dto;
-
-import java.util.List;
+package com.ty.many_to_one.room_hotel.dto;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.Generated;
 
 @Entity
-public class Organization {
+public class Hotel {
 
 	@Id
+	//@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String address;
 
-	@OneToMany
-	private List<Bus> bus;
-
 	@Override
 	public String toString() {
-		return "Organization [id=" + id + ", name=" + name + ", address=" + address + ", bus=" + bus + "]";
+		return "Hotel [id=" + id + ", name=" + name + ", address=" + address + "]";
 	}
 
 	public int getId() {
@@ -44,14 +43,6 @@ public class Organization {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public List<Bus> getBus() {
-		return bus;
-	}
-
-	public void setBus(List<Bus> bus) {
-		this.bus = bus;
 	}
 
 }

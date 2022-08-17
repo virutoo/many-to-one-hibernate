@@ -1,26 +1,16 @@
-package com.ty.mobile_sim.dto;
-
-import java.util.List;
+package com.ty.many_to_one.review_product.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
-public class Mobile {
+public class Product {
 
 	@Id
 	private int id;
 	private String name;
+	private String brand;
 	private int cost;
-
-	@OneToMany
-	List<Sim> sims;
-
-	@Override
-	public String toString() {
-		return "Mobile [id=" + id + ", name=" + name + ", cost=" + cost + ", sim=" + sims + "]";
-	}
 
 	public int getId() {
 		return id;
@@ -38,6 +28,14 @@ public class Mobile {
 		this.name = name;
 	}
 
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
+
 	public int getCost() {
 		return cost;
 	}
@@ -46,12 +44,9 @@ public class Mobile {
 		this.cost = cost;
 	}
 
-	public List<Sim> getSims() {
-		return sims;
-	}
-
-	public void setSims(List<Sim> sims) {
-		this.sims = sims;
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", brand=" + brand + ", cost=" + cost + "]";
 	}
 
 }
